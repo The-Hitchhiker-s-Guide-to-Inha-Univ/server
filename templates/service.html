@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>navigate</title>
+        <style>
+            body{
+                background-color: rgb(27, 36, 29);
+                color:rgb(146, 146, 64);
+            }
+            .container{
+                margin-left:20%;
+                margin-right:20%;
+                border-radius: 15px;
+                background-color: rgb(34, 59, 31);
+                padding-left: 5%;
+                padding-right: 20%;
+                padding-top:5%;
+                padding-bottom:5%;
+                border:2px solid rgb(32, 34, 30);
+            }
+            .button {
+                background-color: #4CAF50; /* Green */
+                border: none;
+                border-radius: 10px;
+                color: white;
+                padding: 12px 26px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 12px;
+                margin: 4px 2px;
+                transition-duration: 0.4s;
+                cursor: pointer;
+            }
+
+            .button1 {
+                background-color: white; 
+                color: rgb(146, 146, 64); 
+                border: 2px solid rgb(32, 34, 30);
+            }
+
+            .button1:hover {
+                background-color: rgb(34, 59, 31);
+                color: rgb(146, 146, 64);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            {% for i in range(route_length) %}
+            <h2>{{route[i]}}</h2>
+            {% endfor %}
+            <br>
+        </div>
+        <input type="button" class="button button1" value="돌아가기" style="margin: 20%; margin-top: 5%;"onclick="location.href='index.html'">
+    </body>
+</html>

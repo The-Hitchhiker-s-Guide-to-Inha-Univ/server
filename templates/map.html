@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Inha MAP</title>
+{% if start %}
+  <h1>시작점 :  {{ start }}!</h1>
+{% else %}
+  <h1>Hello World!</h1>
+{% endif %}
+
+{% for i in range(route_length) %}
+  <h2>{{route[i]}}</h2>
+{% endfor %}
