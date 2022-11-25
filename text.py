@@ -1,13 +1,23 @@
 from bfs import bfs
 import map
 
+map_graph = dict(
+    map.East_1,**map.East_2,**map.East_3,**map.East_4,**map.East_5,
+    **map.North_1,**map.North_2,**map.North_3,**map.North_4,**map.North_5,
+    **map.West_2,**map.West_3,**map.West_4,**map.West_5,
+    **map.Stair
+)
+
+def get_map_graph():
+    return map_graph
+
 def map_text(start, finish):
-    map_graph = dict(
-        map.East_1,**map.East_2,**map.East_3,**map.East_4,**map.East_5,
-        **map.North_1,**map.North_2,**map.North_3,**map.North_4,**map.North_5,
-        **map.West_2,**map.West_3,**map.West_4,**map.West_5,
-        **map.Stair
-    )
+    # map_graph = dict(
+    #     map.East_1,**map.East_2,**map.East_3,**map.East_4,**map.East_5,
+    #     **map.North_1,**map.North_2,**map.North_3,**map.North_4,**map.North_5,
+    #     **map.West_2,**map.West_3,**map.West_4,**map.West_5,
+    #     **map.Stair
+    # )
 
     route = bfs(map_graph,start,finish)
 

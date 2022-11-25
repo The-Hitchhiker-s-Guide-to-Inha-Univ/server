@@ -12,9 +12,11 @@ def home():
 def map():
     starting_point = request.args.get('starting_point')
     arrival_point = request.args.get('arrival_point')
-    print(f'starting point : {starting_point}, arrival point : {arrival_point}')
+    map_graph = text.get_map_graph()
+    if (not starting_point in map_graph or not arrival_point in map_graph):
+        return render_template("error.html") 
     route = text.map_text(starting_point,arrival_point)
-    return render_template("map.html", route=route, route_length=len(route))
+    return render_template("service.html", route=route, route_length=len(route))
 
 if __name__ == '__main__':
     app.run(debug=True)
