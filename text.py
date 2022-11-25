@@ -1,10 +1,15 @@
 from bfs import bfs
 import map
 
-def map_text():
-    map_graph = dict(map.East_1,**map.East_2,**map.East_3,**map.Stair,**map.North_1)
+def map_text(start, finish):
+    map_graph = dict(
+        map.East_1,**map.East_2,**map.East_3,**map.East_4,**map.East_5,
+        **map.North_1,**map.North_2,**map.North_3,**map.North_4,**map.North_5,
+        **map.West_2,**map.West_3,**map.West_4,**map.West_5,
+        **map.Stair
+    )
 
-    route = bfs(map_graph,"5E102","5E306A")
+    route = bfs(map_graph,start,finish)
 
     #print(route)
 

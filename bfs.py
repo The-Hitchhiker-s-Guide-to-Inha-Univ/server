@@ -1,5 +1,5 @@
 from collections import deque
-import copy
+#import copy
 
 def bfs(graph, start, finish):
     queue = deque()
@@ -15,7 +15,11 @@ def bfs(graph, start, finish):
             for i in graph[node]:
                 if i in visited:
                     continue
-                temp_route = copy.deepcopy(route)
+                if "계단" in i and node[2] == finish[2]:
+                    if i != "5남의 동쪽과 서쪽을 이어주는 계단":
+                        continue
+                #temp_route = copy.deepcopy(route)
+                temp_route = route[:]
                 if i == finish:
                     temp_route.append(i)
                     return temp_route

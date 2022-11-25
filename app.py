@@ -1,30 +1,19 @@
-#import pyrebase
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import text
-
-config = {
-    "apiKey": "AIzaSyCuaRMqPneqW0kva9WgFTDt-ubiny0n0Wc",
-    "authDomain": "inhamap-69bfc.firebaseapp.com",
-    "projectId": "inhamap-69bfc",
-    "storageBucket": "inhamap-69bfc.appspot.com",
-    "messagingSenderId": "743798326311",
-    "appId": "1:743798326311:web:13b11e3e9c878cc9a87a02",
-    "measurementId": "G-VTMEXV5QR6"
-}
-
-#firebase = pyrebase.initialize_app(config)
-
-#db = firebase.daStabase()
 
 app = Flask(__name__)
 
+@app.route('/')
 @app.route('/home')
 def home():
     return render_template("index.html")
 
-@app.route('/map/<start>/<finish>')
-def map(start = None, finish = None):
-    route = text.map_text()
+@app.route('/map',methods=['get'])
+def map():
+    starting_point = request.args.get('starting_point')
+    arrival_point = request.args.get('arrival_point')
+    print(f'starting point : {starting_point}, arrival point : {arrival_point}')
+    route = text.map_text(starting_point,arrival_point)
     return render_template("map.html", route=route, route_length=len(route))
 
 if __name__ == '__main__':
