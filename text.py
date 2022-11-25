@@ -11,6 +11,21 @@ map_graph = dict(
 def get_map_graph():
     return map_graph
 
+def convert_text(text):
+    direction = text[1]
+
+    direction_pair = {
+        "동":"E","서":"W","남":"S","북":"N",
+        "e":"E","w":"W","s":"S","n":"N"
+    }
+
+    if direction in direction_pair:
+        return text[0] + direction_pair[direction] + text[2:]
+    
+    else:
+        return text
+    
+    
 def map_text(start, finish):
     # map_graph = dict(
     #     map.East_1,**map.East_2,**map.East_3,**map.East_4,**map.East_5,
