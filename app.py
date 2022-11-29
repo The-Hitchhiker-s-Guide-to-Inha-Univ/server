@@ -19,6 +19,7 @@ def map():
         start_direction = starting_point[1]
         if not start_direction in ("E","W","S","N"):
             starting_point = text.convert_text(starting_point)
+
     if len(arrival_point) > 1:
         finish_direction = arrival_point[1]
         if not finish_direction in ("E","W","S","N"):
@@ -26,7 +27,9 @@ def map():
     
     if (not starting_point in map_graph or not arrival_point in map_graph):
         return render_template("error.html") 
+
     route = text.map_text(starting_point,arrival_point)
+    
     return render_template("service.html", route=route, route_length=len(route))
 
 if __name__ == '__main__':
