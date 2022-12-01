@@ -12,7 +12,8 @@
 
 - 이 프로젝트는 2022-2 인하대학교 <a href="https://abeek.inha.ac.kr/01_prof/01_portfolio/PlanPrintInfo.aspx?CurrSeq=152095&ViewState=Y">창의적 정보통신 공학설계</a> 과목을 수강하면서 진행되었습니다.
 
-- 서비스 주소 : <a href="http://inhamap.com">inhamap.com</a>
+- 서비스 주소
+    - <a href="http://inhamap.com">inhamap.com</a>
 
 ## Description
 <!-- 프로젝트에 대한 간단한 설명 기술
@@ -26,19 +27,43 @@
 
 ### 서비스 흐름도
 
+### 사용 방법
+
 
 ## Environment
-실행환경에 대해 작성
-OS, 컴파일러, CPU나 RAM
-
-## Prerequisite
-실행하기 전 설치해야 할 pakage
+<!-- 실행환경에 대해 작성
+OS, 컴파일러, CPU나 RAM -->
+- Amazon Web Services(AWS) Lightsail
+- Ubuntu 20.04
+- Python 3.8.10
+- Flask 2.2.2
+- Nginx 1.18.0
+- Gunicorn 20.1.0
+- Jinja2 3.1.2
 
 ## Files
-각 파일들이 어떤 역할을 하는지
+<!-- 각 파일들이 어떤 역할을 하는지 -->
+- ```app.py```
+    - 프로젝트의 메인 파일입니다. 페이지 라우팅을 담당하고 있습니다.
+- ```bfs.py```
+    - BFS(너비 우선 탐색) 알고리즘을 사용하여 경로를 탐색하는 함수가 있는 파일입니다.
+- ```map.py```
+    - 강의실 간의 관계를 딕셔너리 형태로 저장하고 있습니다. 이를 이용해 bfs.py에서 경로를 탐색합니다.
+- ```text.py```
+    - bfs.py를 이용해서 탐색한 결과를 안내 텍스트로 가공하는 함수가 있는 파일입니다.
+    - 사용자가 입력한 출발지, 도착지 정보를 가공하는 함수가 있는 파일입니다.
+- ```wsgi.py```
+    - Gunicorn을 이용할 때 사용하는 파일입니다.
+- ```templates/index.html```
+    - 메인 페이지의 HTML 파일입니다.
+- ```templates/service.html```
+    - 지도와 경로 텍스트를 띄워주는 페이지의 HTML 파일입니다.
+- ```templates/error.html```
+    - 사용자가 존재하지 않는 강의실을 입력할 경우 에러 메세지를 띄우는 HTML 파일입니다.
 
-## Usage
-작성한 코드들을 어떻게 실행해야 하는지 가이드라인
+
+<!-- ## Usage
+작성한 코드들을 어떻게 실행해야 하는지 가이드라인 -->
 
 ## License
 > MIT License
