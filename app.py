@@ -32,5 +32,9 @@ def map():
     
     return render_template("service.html", route=route, route_length=len(route))
 
+@app.route('/credit')
+def credit():
+    return render_template("credit.html")
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -16,6 +16,12 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/static/css/styles.css" rel="stylesheet" />
         <!-- <link href="{{url_for('static', filename='css/styles.css')}}"> -->
+        <style>
+            @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+            h2{
+                font-family: 'Jeju Hallasan', cursive;
+            }
+        </style>
     </head>
     <body>
         <!-- Background Video-->
@@ -33,25 +39,33 @@
                         <p>Enter the starting point.</p>
                         <p><input type="text" id="finish" name="arrival_point" placeholder="5N413"></p>
                         <p>Enter the arrival point.</p>
-                        <button id="send">전송</button>
+                        <button style="background-color: black; color: white; border-radius: 5px; border: 2px white solid;" id="send">submit</button>
                     </form>
+                    <div>
+                    <p id="loading" style="opacity: 0%; font-size:2px">로딩중...</p>
+                    </div>
+                    <!--Credit.html와 연결-->
+                    <button style="background-color: black; color: white; border-radius: 5px; border: 2px white solid;" onclick="location.href='/credit'">Credit</button>
                     <script>
                         var send = document.getElementById("send");
                         send.addEventListener("click",function () {
                             var form = document.getElementById("form");
                             var start = document.getElementById("start");
-                            var finish = document.getElementById("finish");
+                            var finish = document.getElementById("finish");  
 
                             if (start.value.trim()==""||finish.value.trim()=="") {
                                 alert("빈칸을 채워주세요");
                                 return false;
                             }
 
+                            const load = document.getElementById('loading');
+                            load.style.opacity = "100%";
+
                             form.action = "/map";
                             form.method = "GET";
-                            form.submit();
-                        });
-                        
+                            form.submit();                        
+                        }
+                        );
                     </script>
                 </div>
             </div>
