@@ -49,11 +49,17 @@ def map_text(start, finish):
             result.append(f'5호관 {route[0]}에서 {route[direction_index]}쪽 방향으로 출발')
 
         elif current_node_is_stair(i):
-            if "엘리베이터" in i:
+            if current_node_is_elevator(i):
                 result.append(f'{i}를 통해 {route[idx-1][floor_index]}층에서 {route[idx+1][floor_index]}층으로 이동하여 {route[idx+1]}까지 이동')
+            elif node_is_5s_connection_stair(i):
+                if route[idx-1][2] == route[idx+1][2]:
+                    result.append(f'{i}을 통해 {route[idx-1]}에서 {route[idx+1]}까지 이동 (왼쪽 계단 1번 → 오른쪽 계단 1번)')
+                else:
+                    result.append(f'{i}을 통해 {route[idx-1][floor_index]}층에서 {route[idx+1][floor_index]}층으로 이동하여 {route[idx+1]}까지 이동')
             else:
                 result.append(f'{i}을 통해 {route[idx-1][floor_index]}층에서 {route[idx+1][floor_index]}층으로 이동하여 {route[idx+1]}까지 이동')
-            result.append(f'{route[idx+1]}에서 {route[idx+2]} 방향으로 이동')
+            if route[idx+1][1] == route[idx+2][1]:
+                result.append(f'{route[idx+1]}에서 {route[idx+2]} 방향으로 이동')
 
         else:
             if not current_node_is_end_of_route(route,idx):
@@ -69,6 +75,9 @@ def map_text(start, finish):
                     result.append(f'5호관 {i} 옆 {route[idx+1]}까지 이동')
 
     return result
+
+def current_node_is_elevator(i):
+    return "엘리베이터" in i
 
 def next_node_is_stair(route, idx):
     return "계단" in route[idx+1]
@@ -88,3 +97,6 @@ def current_node_is_stair(i):
 
 def current_node_is_start_of_route(idx):
     return idx == 0
+
+def node_is_5s_connection_stair(node):
+    return "5남의 동쪽과 서쪽을 이어주는 계단" == node
