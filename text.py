@@ -66,6 +66,7 @@ def map_text(start, finish):
                 if next_node_is_not_stair(route, idx):
                     if current_direction_and_next_direction_are_different(route, idx):
                         result.append(f'{i}까지 이동 후 {direction[route[idx][direction_index]]}쪽 건물에서 {direction[route[idx+1][direction_index]]}쪽 건물로 이동하여 {route[idx+1]}까지 이동')
+                        result.append(f'{route[idx+1]}에서 {route[idx+2]} 방향으로 이동')
 
             elif current_node_is_end_of_route(route, idx):
                 result.append(f'{i}까지 이동하여 도착')

@@ -23,7 +23,7 @@ def bfs(graph, start, finish):
                             continue
 
                 if node_is_stair(node):
-                    if not current_floor_equals_arrival_floor(i,finish) and not node_is_5s_connection_stair(node):
+                    if not current_floor_equals_arrival_floor(i,finish):# and not node_is_5s_connection_stair(node):
                         continue
 
                 
