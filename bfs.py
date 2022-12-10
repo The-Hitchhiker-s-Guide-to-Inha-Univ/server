@@ -18,12 +18,12 @@ def bfs(graph, start, finish):
                     continue
 
                 if node_is_stair(i):
-                    if current_direction_equals_arrival_direction(node,finish):
+                    if current_floor_equals_arrival_floor(node,finish):
                         if node_is_not_5S_connect_stair(i):
                             continue
 
                 if node_is_stair(node):
-                    if i[2] != finish[2]:
+                    if not current_floor_equals_arrival_floor(i,finish):
                         continue
 
                 
@@ -66,9 +66,9 @@ def node_is_not_5S_connect_stair(i):
     _5S_connect_stair = "5남의 동쪽과 서쪽을 이어주는 계단"
     return i != _5S_connect_stair
 
-def current_direction_equals_arrival_direction(node, finish):
-    direction_index = 2
-    return node[direction_index] == finish[direction_index]
+def current_floor_equals_arrival_floor(node, finish):
+    floor_index = 2
+    return node[floor_index] == finish[floor_index]
 
 def node_is_stair(i):
     return "계단" in i 
