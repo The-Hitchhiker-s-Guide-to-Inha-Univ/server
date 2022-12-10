@@ -49,7 +49,10 @@ def map_text(start, finish):
             result.append(f'5호관 {route[0]}에서 {route[direction_index]}쪽 방향으로 출발')
 
         elif current_node_is_stair(i):
-            result.append(f'{i}을 통해 {route[idx-1][floor_index]}층에서 {route[idx+1][floor_index]}층으로 이동하여 {route[idx+1]}까지 이동')
+            if "엘리베이터" in i:
+                result.append(f'{i}를 통해 {route[idx-1][floor_index]}층에서 {route[idx+1][floor_index]}층으로 이동하여 {route[idx+1]}까지 이동')
+            else:
+                result.append(f'{i}을 통해 {route[idx-1][floor_index]}층에서 {route[idx+1][floor_index]}층으로 이동하여 {route[idx+1]}까지 이동')
             result.append(f'{route[idx+1]}에서 {route[idx+2]} 방향으로 이동')
 
         else:

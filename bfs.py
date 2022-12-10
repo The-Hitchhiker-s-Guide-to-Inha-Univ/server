@@ -21,6 +21,11 @@ def bfs(graph, start, finish):
                     if current_direction_equals_arrival_direction(node,finish):
                         if node_is_not_5S_connect_stair(i):
                             continue
+
+                if node_is_stair(node):
+                    if i[2] != finish[2]:
+                        continue
+
                 
                 if current_node_is_arrival_node(i,finish):
                     predecessor[i] = node
