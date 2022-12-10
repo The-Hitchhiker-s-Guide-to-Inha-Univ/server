@@ -26,7 +26,10 @@ def map():
             arrival_point = text.convert_text(arrival_point)
     
     if (not starting_point in map_graph or not arrival_point in map_graph):
-        return render_template("error.html") 
+        return render_template("not_found_error.html")
+
+    if (starting_point == arrival_point):
+        return render_template("same_point_error.html")
 
     route = text.map_text(starting_point,arrival_point)
     
