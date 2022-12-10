@@ -5,7 +5,7 @@ map_graph = dict(
     map.East_1,**map.East_2,**map.East_3,**map.East_4,**map.East_5,
     **map.North_1,**map.North_2,**map.North_3,**map.North_4,**map.North_5,
     **map.West_2,**map.West_3,**map.West_4,**map.West_5,
-    **map.South_1,
+    **map.South_1,**map.South_2,**map.South_3,**map.South_4,**map.South_5,
     **map.Stair
 )
 
