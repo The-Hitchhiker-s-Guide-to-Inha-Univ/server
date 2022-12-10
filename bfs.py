@@ -23,7 +23,7 @@ def bfs(graph, start, finish):
                             continue
 
                 if node_is_stair(node):
-                    if not current_floor_equals_arrival_floor(i,finish):
+                    if not current_floor_equals_arrival_floor(i,finish) and not node_is_5s_connection_stair(node):
                         continue
 
                 
@@ -72,3 +72,6 @@ def current_floor_equals_arrival_floor(node, finish):
 
 def node_is_stair(i):
     return "계단" in i 
+
+def node_is_5s_connection_stair(node):
+    return "5남의 동쪽과 서쪽을 이어주는 계단" == node
