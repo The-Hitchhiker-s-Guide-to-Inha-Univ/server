@@ -58,7 +58,7 @@ def map_text(start, finish):
                     result.append(f'{i}을 통해 {route[idx-1][floor_index]}층에서 {route[idx+1][floor_index]}층으로 이동하여 {route[idx+1]}까지 이동')
             else:
                 result.append(f'{i}을 통해 {route[idx-1][floor_index]}층에서 {route[idx+1][floor_index]}층으로 이동하여 {route[idx+1]}까지 이동')
-            if route[idx+1][1] == route[idx+2][1]:
+            if idx + 2 < len(route) and route[idx+1][1] == route[idx+2][1]:
                 result.append(f'{route[idx+1]}에서 {route[idx+2]} 방향으로 이동')
 
         else:
