@@ -39,6 +39,9 @@
 4. 만약 빈칸이 있거나 존재하지 않는 강의실을 입력하셨다면 경고창이 뜨고 다시 메인 페이지로 돌아옵니다.
 5. 제대로 출발지와 도착지 정보를 입력했다면 건물 약도와 함께 경로 텍스트가 표시됩니다.
 
+### 시연 영상
+[![시연 영상](https://img.youtube.com/vi/XmICOxDKQpM/0.jpg)](https://youtu.be/XmICOxDKQpM)
+
 
 
 ## Environment
