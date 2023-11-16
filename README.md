@@ -13,7 +13,8 @@
 - 이 프로젝트는 2022-2 인하대학교 <a href="https://abeek.inha.ac.kr/01_prof/01_portfolio/PlanPrintInfo.aspx?CurrSeq=152095&ViewState=Y">창의적 정보통신 공학설계</a> 과목을 수강하면서 진행되었습니다.
 
 - 서비스 주소
-    - <a href="http://inhamap.com">inhamap.com</a> (현재는 aws 서버 비용 때문에 잠시 운영을 중단하였습니다.)
+    - <a href="http://inhamap.com">inhamap.com</a>
+        - 현재는 aws 서버 비용 때문에 잠시 운영을 중단하였습니다.
 
 ## Description
 <!-- 프로젝트에 대한 간단한 설명 기술
